@@ -3,18 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C7090803273452F9008AD3A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7090802273452F9008AD3A5 /* AppDelegate.swift */; };
 		C7090805273452F9008AD3A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7090804273452F9008AD3A5 /* SceneDelegate.swift */; };
-		C7090807273452F9008AD3A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7090806273452F9008AD3A5 /* ViewController.swift */; };
+		C7090807273452F9008AD3A5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7090806273452F9008AD3A5 /* MainViewController.swift */; };
 		C709080A273452F9008AD3A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7090808273452F9008AD3A5 /* Main.storyboard */; };
 		C709080C273452FB008AD3A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C709080B273452FB008AD3A5 /* Assets.xcassets */; };
 		C709080F273452FB008AD3A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C709080D273452FB008AD3A5 /* LaunchScreen.storyboard */; };
 		C709081A273452FB008AD3A5 /* TedTalksAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7090819273452FB008AD3A5 /* TedTalksAppTests.swift */; };
 		C7090825273452FB008AD3A5 /* TedTalksAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7090824273452FB008AD3A5 /* TedTalksAppUITests.swift */; };
+		C7090836273455B9008AD3A5 /* talks.json in Resources */ = {isa = PBXBuildFile; fileRef = C7090835273455B9008AD3A5 /* talks.json */; };
+		C7090841273455F1008AD3A5 /* Talk.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7090840273455F1008AD3A5 /* Talk.swift */; };
+		C709084627345A02008AD3A5 /* TalkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C709084527345A02008AD3A5 /* TalkManager.swift */; };
+		C709084B2734635C008AD3A5 /* LauncherIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = C709084A2734635C008AD3A5 /* LauncherIcon.png */; };
+		C70A464C2735AD2B002CC93F /* MultiSelectSegmentedControl in Frameworks */ = {isa = PBXBuildFile; productRef = C70A464B2735AD2B002CC93F /* MultiSelectSegmentedControl */; };
+		C731017B273DB51400791BCE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C731017A273DB51400791BCE /* placeholder.png */; };
+		C74B3E862734689300C25959 /* TedTalkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74B3E842734689300C25959 /* TedTalkTableViewCell.swift */; };
+		C74B3E872734689300C25959 /* TedTalkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74B3E852734689300C25959 /* TedTalkTableViewCell.xib */; };
+		C7B27F55273EF67D0019446C /* MainViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B27F54273EF67D0019446C /* MainViewControllerTest.swift */; };
+		C7F82B05273C1FB1004C31D6 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F82B04273C1FB1004C31D6 /* VideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +48,7 @@
 		C70907FF273452F9008AD3A5 /* TedTalksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TedTalksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7090802273452F9008AD3A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7090804273452F9008AD3A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C7090806273452F9008AD3A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C7090806273452F9008AD3A5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C7090809273452F9008AD3A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C709080B273452FB008AD3A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C709080E273452FB008AD3A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +59,15 @@
 		C7090820273452FB008AD3A5 /* TedTalksAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TedTalksAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7090824273452FB008AD3A5 /* TedTalksAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TedTalksAppUITests.swift; sourceTree = "<group>"; };
 		C7090826273452FB008AD3A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7090835273455B9008AD3A5 /* talks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = talks.json; sourceTree = "<group>"; };
+		C7090840273455F1008AD3A5 /* Talk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Talk.swift; sourceTree = "<group>"; };
+		C709084527345A02008AD3A5 /* TalkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkManager.swift; sourceTree = "<group>"; };
+		C709084A2734635C008AD3A5 /* LauncherIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LauncherIcon.png; path = Assets.xcassets/LauncherIcon.png; sourceTree = "<group>"; };
+		C731017A273DB51400791BCE /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeholder.png; path = Assets.xcassets/placeholder.png; sourceTree = "<group>"; };
+		C74B3E842734689300C25959 /* TedTalkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TedTalkTableViewCell.swift; sourceTree = "<group>"; };
+		C74B3E852734689300C25959 /* TedTalkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TedTalkTableViewCell.xib; sourceTree = "<group>"; };
+		C7B27F54273EF67D0019446C /* MainViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTest.swift; sourceTree = "<group>"; };
+		C7F82B04273C1FB1004C31D6 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C70A464C2735AD2B002CC93F /* MultiSelectSegmentedControl in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,13 +119,18 @@
 		C7090801273452F9008AD3A5 /* TedTalksApp */ = {
 			isa = PBXGroup;
 			children = (
+				C7AC7889273AEE61002D064D /* Controller */,
+				C7AC7888273AEE51002D064D /* View */,
+				C7AC7887273AEE48002D064D /* Model */,
+				C709084A2734635C008AD3A5 /* LauncherIcon.png */,
 				C7090802273452F9008AD3A5 /* AppDelegate.swift */,
+				C731017A273DB51400791BCE /* placeholder.png */,
 				C7090804273452F9008AD3A5 /* SceneDelegate.swift */,
-				C7090806273452F9008AD3A5 /* ViewController.swift */,
-				C7090808273452F9008AD3A5 /* Main.storyboard */,
 				C709080B273452FB008AD3A5 /* Assets.xcassets */,
-				C709080D273452FB008AD3A5 /* LaunchScreen.storyboard */,
 				C7090810273452FB008AD3A5 /* Info.plist */,
+				C7090835273455B9008AD3A5 /* talks.json */,
+				C7090840273455F1008AD3A5 /* Talk.swift */,
+				C709084527345A02008AD3A5 /* TalkManager.swift */,
 			);
 			path = TedTalksApp;
 			sourceTree = "<group>";
@@ -115,6 +140,7 @@
 			children = (
 				C7090819273452FB008AD3A5 /* TedTalksAppTests.swift */,
 				C709081B273452FB008AD3A5 /* Info.plist */,
+				C7B27F54273EF67D0019446C /* MainViewControllerTest.swift */,
 			);
 			path = TedTalksAppTests;
 			sourceTree = "<group>";
@@ -126,6 +152,33 @@
 				C7090826273452FB008AD3A5 /* Info.plist */,
 			);
 			path = TedTalksAppUITests;
+			sourceTree = "<group>";
+		};
+		C7AC7887273AEE48002D064D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C7AC7888273AEE51002D064D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C7090808273452F9008AD3A5 /* Main.storyboard */,
+				C709080D273452FB008AD3A5 /* LaunchScreen.storyboard */,
+				C74B3E852734689300C25959 /* TedTalkTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C7AC7889273AEE61002D064D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C7090806273452F9008AD3A5 /* MainViewController.swift */,
+				C74B3E842734689300C25959 /* TedTalkTableViewCell.swift */,
+				C7F82B04273C1FB1004C31D6 /* VideoViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +197,9 @@
 			dependencies = (
 			);
 			name = TedTalksApp;
+			packageProductDependencies = (
+				C70A464B2735AD2B002CC93F /* MultiSelectSegmentedControl */,
+			);
 			productName = TedTalksApp;
 			productReference = C70907FF273452F9008AD3A5 /* TedTalksApp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +271,9 @@
 				Base,
 			);
 			mainGroup = C70907F6273452F9008AD3A5;
+			packageReferences = (
+				C70A464A2735AD2B002CC93F /* XCRemoteSwiftPackageReference "MultiSelectSegmentedControl" */,
+			);
 			productRefGroup = C7090800273452F9008AD3A5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +291,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C709080F273452FB008AD3A5 /* LaunchScreen.storyboard in Resources */,
+				C709084B2734635C008AD3A5 /* LauncherIcon.png in Resources */,
+				C7090836273455B9008AD3A5 /* talks.json in Resources */,
+				C74B3E872734689300C25959 /* TedTalkTableViewCell.xib in Resources */,
+				C731017B273DB51400791BCE /* placeholder.png in Resources */,
 				C709080C273452FB008AD3A5 /* Assets.xcassets in Resources */,
 				C709080A273452F9008AD3A5 /* Main.storyboard in Resources */,
 			);
@@ -258,9 +321,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7090807273452F9008AD3A5 /* ViewController.swift in Sources */,
+				C7090807273452F9008AD3A5 /* MainViewController.swift in Sources */,
+				C7F82B05273C1FB1004C31D6 /* VideoViewController.swift in Sources */,
+				C74B3E862734689300C25959 /* TedTalkTableViewCell.swift in Sources */,
+				C7090841273455F1008AD3A5 /* Talk.swift in Sources */,
 				C7090803273452F9008AD3A5 /* AppDelegate.swift in Sources */,
 				C7090805273452F9008AD3A5 /* SceneDelegate.swift in Sources */,
+				C709084627345A02008AD3A5 /* TalkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C709081A273452FB008AD3A5 /* TedTalksAppTests.swift in Sources */,
+				C7B27F55273EF67D0019446C /* MainViewControllerTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +655,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C70A464A2735AD2B002CC93F /* XCRemoteSwiftPackageReference "MultiSelectSegmentedControl" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yonat/MultiSelectSegmentedControl";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C70A464B2735AD2B002CC93F /* MultiSelectSegmentedControl */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C70A464A2735AD2B002CC93F /* XCRemoteSwiftPackageReference "MultiSelectSegmentedControl" */;
+			productName = MultiSelectSegmentedControl;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C70907F7273452F9008AD3A5 /* Project object */;
 }
