@@ -19,40 +19,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var filterMultiSelectSegmentedControl: MultiSelectSegmentedControl!
     
-    var tedTalks: [Talk]? = []
-    var filteredTalks: [Talk] = [] {
-        didSet {
-            talksTableView.reloadData()
-        }
-    }
+    lazy var presenter: TedTalksPresenterProtocol = TedTalksPresenter(view: self as TedTalksViewProtocol)
     
-    override func viewDidLoad() {
+    override func viewDidLoad() {    
         super.viewDidLoad()
         talksTableView.isHidden = true
         configureTable()
         filterMultiSelectSegmentedControl.items = [Filters.Event.rawValue, Filters.MainSpeaker.rawValue, Filters.Title.rawValue, Filters.Name.rawValue, Filters.Description.rawValue]
-        TalkManager().parseFromJson() {
-            [weak self] result in
-            DispatchQueue.main.async {
-                self?.activityIndicator.stopAnimating()
-                switch result {
-                case .success(let talks):
-                    self?.tedTalks = talks
-                case .failure(let error):
-                    switch error {
-                    case .fileNotFound:
-                        self?.messageUILabel.text = "File not found"
-                    case .decodingProblem(let problem):
-                        self?.messageUILabel.text = "There was a problem decoding the data: \(problem)"
-                    default:
-                        self?.messageUILabel.text = "There was a problem"
-                    }
-                    self?.messageUILabel.isHidden = false
-                    self?.tedTalks = []
-                }
-            }
         }
-    }
 }
 
 extension MainViewController: UISearchBarDelegate {
@@ -60,16 +34,10 @@ extension MainViewController: UISearchBarDelegate {
         if searchBar.text?.isEmpty ?? true || searchBar.text == searchBar.placeholder {
             talksTableView.isHidden = true
         }
-        filteredTalks = []
         messageUILabel.isHidden = true
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
-        let filters = filterMultiSelectSegmentedControl.selectedSegmentTitles
-            tedTalks?.forEach({ (talk) in
-                if talk.isfiltered(filters, input: searchText) {
-                    filteredTalks.append(talk)
-                }
-            })
+        presenter.filterTalks(filters: filterMultiSelectSegmentedControl.selectedSegmentTitles, text: searchText)
         activityIndicator.stopAnimating()
         talksTableView.isHidden = false
     }
@@ -77,11 +45,11 @@ extension MainViewController: UISearchBarDelegate {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredTalks.count
+        return presenter.getFilteredTalksCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let talk = filteredTalks[indexPath.row]
+        let talk = presenter.getFilteredTalk(for: indexPath.row)
         let cellIdentifier = TedTalkTableViewCell.getIdentifier()
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? TedTalkTableViewCell
         cell?.talkThumbnailImageView.image = UIImage(named: "thumbnail_placeholder")
@@ -101,11 +69,11 @@ extension MainViewController: UITableViewDataSource {
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        guard indexPath.row <= filteredTalks.count else {
+        guard indexPath.row <= presenter.getFilteredTalksCount() else {
             print("Out of range")
             return
         }
-        performSegue(withIdentifier: "videoDetail", sender: filteredTalks[indexPath.row])
+        performSegue(withIdentifier: "videoDetail", sender: presenter.getFilteredTalk(for: indexPath.row))
         }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -114,5 +82,23 @@ extension MainViewController: UITableViewDelegate {
                    let selectedTedTalk = sender as? Talk {
                     destinationViewController.setTalk(selectedTedTalk)
                 }
+    }
+}
+
+extension MainViewController: TedTalksViewProtocol {
+    func reloadData() {
+        guard presenter.parseError != nil else {
+            talksTableView.reloadData()
+            return
+        }
+        switch presenter.parseError {
+        case .fileNotFound:
+            self.messageUILabel.text = "File not found"
+        case .decodingProblem(let problem):
+            self.messageUILabel.text = "There was a problem decoding the data: \(problem)"
+        default:
+            self.messageUILabel.text = "There was a problem"
+        }
+        self.messageUILabel.isHidden = false
     }
 }

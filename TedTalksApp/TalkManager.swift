@@ -14,9 +14,9 @@ enum ParseErrors: Error {
 }
 
 class TalkManager {
-    func parseFromJson(onCompletion: @escaping (Result<[Talk], ParseErrors>) -> Void) {
+    func parseFromJson(fileName: String, onCompletion: @escaping (Result<[Talk], ParseErrors>) -> Void) {
         DispatchQueue.global(qos: .background).async {
-            let url = Bundle.main.url(forResource: "talks", withExtension: "json")
+            let url = Bundle.main.url(forResource: fileName, withExtension: "json")
             guard let myUrl = url else {
                 onCompletion(.failure(.fileNotFound))
                 return
