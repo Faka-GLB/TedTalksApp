@@ -128,7 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				C7AA016C2743F35C00533F59 /* Presenter */,
-				C7AC7889273AEE61002D064D /* Controller */,
 				C7AC7888273AEE51002D064D /* View */,
 				C7AC7887273AEE48002D064D /* Model */,
 				C709084A2734635C008AD3A5 /* LauncherIcon.png */,
@@ -183,22 +182,15 @@
 		C7AC7888273AEE51002D064D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C7090806273452F9008AD3A5 /* MainViewController.swift */,
+				C74B3E842734689300C25959 /* TedTalkTableViewCell.swift */,
+				C7F82B04273C1FB1004C31D6 /* VideoViewController.swift */,
 				C7090808273452F9008AD3A5 /* Main.storyboard */,
 				C709080D273452FB008AD3A5 /* LaunchScreen.storyboard */,
 				C74B3E852734689300C25959 /* TedTalkTableViewCell.xib */,
 				C7AA01672743F34500533F59 /* TedTalksViewProtocol.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		C7AC7889273AEE61002D064D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				C7090806273452F9008AD3A5 /* MainViewController.swift */,
-				C74B3E842734689300C25959 /* TedTalkTableViewCell.swift */,
-				C7F82B04273C1FB1004C31D6 /* VideoViewController.swift */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
