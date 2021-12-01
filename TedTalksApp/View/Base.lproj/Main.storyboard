@@ -27,9 +27,14 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="CG5-vX-9cj">
                                 <rect key="frame" x="186.5" y="367.5" width="41" height="39"/>
                             </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFZ-WT-zHC" userLabel="LoaderView" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="124" y="309.5" width="166" height="155"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="loader"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1A-SZ-SEh">
                                 <rect key="frame" x="83" y="286.5" width="248" height="201.5"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Welcome, please select filters and search for TED talks!">
                                         <attributes>
@@ -90,9 +95,13 @@
                         <constraints>
                             <constraint firstItem="g1A-SZ-SEh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="1fS-6I-LQN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V5w-jO-CzW" secondAttribute="trailing" constant="10" id="65n-Sh-NHq"/>
+                            <constraint firstItem="ZFZ-WT-zHC" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.4" id="79l-87-VRg"/>
                             <constraint firstItem="fQS-yY-xt2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.0491071" id="8Xb-yw-mSI"/>
+                            <constraint firstItem="V5w-jO-CzW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BVs-9t-IrQ"/>
                             <constraint firstItem="fQS-yY-xt2" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="CCy-b3-pnl"/>
+                            <constraint firstItem="ZFZ-WT-zHC" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="KFN-xf-X5q"/>
                             <constraint firstItem="Qi8-pw-6cT" firstAttribute="top" secondItem="fQS-yY-xt2" secondAttribute="bottom" constant="5" id="Kyp-5j-IbP"/>
+                            <constraint firstItem="ZFZ-WT-zHC" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="L7y-Fp-k2O"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="V5w-jO-CzW" secondAttribute="bottom" constant="5" id="MwI-e4-ZIz"/>
                             <constraint firstItem="V5w-jO-CzW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Pq0-Iy-Q3h"/>
                             <constraint firstItem="CG5-vX-9cj" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.1" id="TUW-Ab-Uul"/>
@@ -105,11 +114,13 @@
                             <constraint firstItem="Qi8-pw-6cT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qKb-da-Ep6"/>
                             <constraint firstItem="fQS-yY-xt2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="t2d-5r-epC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Qi8-pw-6cT" secondAttribute="trailing" constant="20" id="tBo-Zs-Lg8"/>
+                            <constraint firstItem="ZFZ-WT-zHC" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="tmZ-Tg-kGI"/>
                             <constraint firstItem="V5w-jO-CzW" firstAttribute="top" secondItem="Qi8-pw-6cT" secondAttribute="bottom" constant="5" id="umz-2c-nOH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dzN-Pd-xjG"/>
                     <connections>
+                        <outlet property="LoaderView" destination="ZFZ-WT-zHC" id="ldl-Ma-zib"/>
                         <outlet property="activityIndicator" destination="CG5-vX-9cj" id="wGs-6V-g92"/>
                         <outlet property="filterMultiSelectSegmentedControl" destination="Qi8-pw-6cT" id="kqk-yj-WSy"/>
                         <outlet property="messageUILabel" destination="g1A-SZ-SEh" id="OYh-vk-phh"/>

@@ -23,6 +23,7 @@
 		C731017B273DB51400791BCE /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C731017A273DB51400791BCE /* placeholder.png */; };
 		C74B3E862734689300C25959 /* TedTalkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74B3E842734689300C25959 /* TedTalkTableViewCell.swift */; };
 		C74B3E872734689300C25959 /* TedTalkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C74B3E852734689300C25959 /* TedTalkTableViewCell.xib */; };
+		C796B7FF2750155700BA4ABE /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = C796B7FE2750155700BA4ABE /* Lottie */; };
 		C7AA01682743F34500533F59 /* TedTalksViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA01672743F34500533F59 /* TedTalksViewProtocol.swift */; };
 		C7AA016E2743F37500533F59 /* TedTalksPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA016D2743F37500533F59 /* TedTalksPresenterProtocol.swift */; };
 		C7AA01732743F3D600533F59 /* TedTalksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AA01722743F3D600533F59 /* TedTalksPresenter.swift */; };
@@ -84,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C70A464C2735AD2B002CC93F /* MultiSelectSegmentedControl in Frameworks */,
+				C796B7FF2750155700BA4ABE /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,13 +184,13 @@
 		C7AC7888273AEE51002D064D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C7AA01672743F34500533F59 /* TedTalksViewProtocol.swift */,
 				C7090806273452F9008AD3A5 /* MainViewController.swift */,
 				C74B3E842734689300C25959 /* TedTalkTableViewCell.swift */,
 				C7F82B04273C1FB1004C31D6 /* VideoViewController.swift */,
 				C7090808273452F9008AD3A5 /* Main.storyboard */,
 				C709080D273452FB008AD3A5 /* LaunchScreen.storyboard */,
 				C74B3E852734689300C25959 /* TedTalkTableViewCell.xib */,
-				C7AA01672743F34500533F59 /* TedTalksViewProtocol.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -211,6 +213,7 @@
 			name = TedTalksApp;
 			packageProductDependencies = (
 				C70A464B2735AD2B002CC93F /* MultiSelectSegmentedControl */,
+				C796B7FE2750155700BA4ABE /* Lottie */,
 			);
 			productName = TedTalksApp;
 			productReference = C70907FF273452F9008AD3A5 /* TedTalksApp.app */;
@@ -285,6 +288,7 @@
 			mainGroup = C70907F6273452F9008AD3A5;
 			packageReferences = (
 				C70A464A2735AD2B002CC93F /* XCRemoteSwiftPackageReference "MultiSelectSegmentedControl" */,
+				C796B7FD2750155700BA4ABE /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = C7090800273452F9008AD3A5 /* Products */;
 			projectDirPath = "";
@@ -433,6 +437,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -494,6 +499,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -681,6 +687,14 @@
 				minimumVersion = 2.3.6;
 			};
 		};
+		C796B7FD2750155700BA4ABE /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -688,6 +702,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C70A464A2735AD2B002CC93F /* XCRemoteSwiftPackageReference "MultiSelectSegmentedControl" */;
 			productName = MultiSelectSegmentedControl;
+		};
+		C796B7FE2750155700BA4ABE /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C796B7FD2750155700BA4ABE /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Talk: Decodable {
+struct Talk: Codable {
     let comments: Int
     let description: String
     let duration: Int
@@ -19,7 +19,7 @@ struct Talk: Decodable {
     let numSpeaker: Int
     let publishedDate: Int
     let speakerOccupation: String
-    let tags: [String]
+    let tags: String
     let title: String
     let url: String
     let views: Int

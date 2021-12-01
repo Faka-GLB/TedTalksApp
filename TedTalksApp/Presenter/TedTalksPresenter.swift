@@ -16,15 +16,14 @@ class TedTalksPresenter: TedTalksPresenterProtocol {
             view?.reloadData()
         }
     }
-    var parseError: ParseErrors? = nil
+    var apiError: ApiErrors? = nil
     
     init(view: TedTalksViewProtocol) {
         self.view = view
-        getTalks()
     }
     
-    private func getTalks() {
-        TalkManager().parseFromJson( fileName: "talks") {
+   func getTalks() {
+        TalkManager().getFromServer {
             result in
             DispatchQueue.main.async {
                 switch result {
@@ -33,12 +32,22 @@ class TedTalksPresenter: TedTalksPresenterProtocol {
                 case .failure(let error):
                     switch error {
                     case .decodingProblem:
-                        self.parseError = error
+                        self.apiError = error
                     case .fileNotFound:
-                        self.parseError = error
+                        self.apiError = error
                     case .invalidData:
-                        self.parseError = error
+                        self.apiError = error
                         self.tedTalks = []
+                    case .wrongUrl:
+                        self.apiError = error
+                    case .invalidResponse:
+                        self.apiError = error
+                    case .pageNotFound:
+                        self.apiError = error
+                    case .serverError:
+                        self.apiError = error
+                    case .genericError:
+                        self.apiError = error
                     }
                 }
             }

@@ -7,6 +7,7 @@
 
 import UIKit
 import MultiSelectSegmentedControl
+import Lottie
 
 enum Filters: String {
     case Event = "Event", MainSpeaker = "Main Speaker", Title = "Title", Name = "Name", Description = "Description"
@@ -18,15 +19,31 @@ class MainViewController: UIViewController {
     @IBOutlet weak var talksTableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var filterMultiSelectSegmentedControl: MultiSelectSegmentedControl!
+    @IBOutlet weak var loaderView: AnimationView!
     
     lazy var presenter: TedTalksPresenterProtocol = TedTalksPresenter(view: self as TedTalksViewProtocol)
     
     override func viewDidLoad() {    
         super.viewDidLoad()
+        startLoader()
+        presenter.getTalks()
+        stopLoader()
         talksTableView.isHidden = true
         configureTable()
         filterMultiSelectSegmentedControl.items = [Filters.Event.rawValue, Filters.MainSpeaker.rawValue, Filters.Title.rawValue, Filters.Name.rawValue, Filters.Description.rawValue]
         }
+    
+    private func startLoader() {
+        self.loaderView.contentMode = .scaleAspectFit
+        self.loaderView.loopMode = .loop
+        self.loaderView.animationSpeed = 0.5
+        self.loaderView.play()
+    }
+    
+    private func stopLoader() {
+        self.loaderView.stop()
+        self.loaderView.isHidden = true
+    }
 }
 
 extension MainViewController: UISearchBarDelegate {
@@ -68,7 +85,7 @@ extension MainViewController: UITableViewDataSource {
 }
 
 extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row <= presenter.getFilteredTalksCount() else {
             print("Out of range")
             return
@@ -87,11 +104,11 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: TedTalksViewProtocol {
     func reloadData() {
-        guard presenter.parseError != nil else {
+        guard presenter.apiError != nil else {
             talksTableView.reloadData()
             return
         }
-        switch presenter.parseError {
+        switch presenter.apiError {
         case .fileNotFound:
             self.messageUILabel.text = "File not found"
         case .decodingProblem(let problem):

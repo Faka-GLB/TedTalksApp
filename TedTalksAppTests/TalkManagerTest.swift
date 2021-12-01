@@ -11,7 +11,7 @@ import Foundation
 class TalkManagerTest: XCTestCase {
     var manager = TalkManager?()
     var talks: [Talk] = []
-    var parseError: ParseErrors? = nil
+    var parseError: ApiErrors? = nil
 
     func parseJsonTest() throws {
         let expectation = self.expectation(description: "Parsing a json")
